@@ -3,9 +3,50 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWorksWarehouse.Data", "CodeWorksWarehouse.Data\CodeWorksWarehouse.Data.csproj", "{F47EF8E3-0065-4EE4-8E92-D33FBDB33702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWorksWarehouse.Common", "CodeWorksWarehouse.Common\CodeWorksWarehouse.Common.csproj", "{51B10E20-5432-4176-B553-AFE20D14AAC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWorksWarehouse.Business", "CodeWorksWarehouse.Business\CodeWorksWarehouse.Business.csproj", "{4C8FECEA-9B38-45ED-B7CA-D686BAF82235}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWorksWarehouse.Web", "CodeWorksWarehouse.Web\CodeWorksWarehouse.Web.csproj", "{E9E1EC8A-9707-41A3-9BA4-2F15DE892A62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4A7DB5CE-BDEA-4CA3-A2A0-CA1574F459AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeWorksWarehouse.Business.Tests", "CodeWorksWarehouse.Business.Tests\CodeWorksWarehouse.Business.Tests.csproj", "{937C9440-3170-4AFF-89E0-863B2A744FFD}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F47EF8E3-0065-4EE4-8E92-D33FBDB33702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F47EF8E3-0065-4EE4-8E92-D33FBDB33702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F47EF8E3-0065-4EE4-8E92-D33FBDB33702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F47EF8E3-0065-4EE4-8E92-D33FBDB33702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B10E20-5432-4176-B553-AFE20D14AAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B10E20-5432-4176-B553-AFE20D14AAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B10E20-5432-4176-B553-AFE20D14AAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B10E20-5432-4176-B553-AFE20D14AAC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C8FECEA-9B38-45ED-B7CA-D686BAF82235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8FECEA-9B38-45ED-B7CA-D686BAF82235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8FECEA-9B38-45ED-B7CA-D686BAF82235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8FECEA-9B38-45ED-B7CA-D686BAF82235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E1EC8A-9707-41A3-9BA4-2F15DE892A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E1EC8A-9707-41A3-9BA4-2F15DE892A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E1EC8A-9707-41A3-9BA4-2F15DE892A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E1EC8A-9707-41A3-9BA4-2F15DE892A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937C9440-3170-4AFF-89E0-863B2A744FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937C9440-3170-4AFF-89E0-863B2A744FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937C9440-3170-4AFF-89E0-863B2A744FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937C9440-3170-4AFF-89E0-863B2A744FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{937C9440-3170-4AFF-89E0-863B2A744FFD} = {4A7DB5CE-BDEA-4CA3-A2A0-CA1574F459AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04E42251-5884-4525-B056-76A2F68CAF47}

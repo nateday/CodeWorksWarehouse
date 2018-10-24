@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CodeWorksWarehouse.Common.Entities.Order>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProcessedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RemoveStock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProcessedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RemoveStock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        @using (@Html.BeginForm("ProcessOrder", "OrdersView", item.Id, FormMethod.Post))
+                        {
+                            <button>Process</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
