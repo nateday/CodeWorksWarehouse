@@ -73,7 +73,7 @@ namespace CodeWorksWarehouse.Business.Tests
             var orderService = new OrderService(mockOrdersRepository);
 
             //act
-            var expectedOrder = orderService.ProcessOrder(userOrder);
+            var expectedOrder = orderService.ProcessOrder(userOrder.Id);
 
             //assert
             Assert.IsNotNull(expectedOrder.ProcessedAt, "ProcessedAt was not set.");
@@ -141,7 +141,7 @@ namespace CodeWorksWarehouse.Business.Tests
             //act
             try
             {
-                orderService.ProcessOrder(order);
+                orderService.ProcessOrder(order.Id);
             }
             catch (Exception ex)
             {
