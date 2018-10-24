@@ -46,7 +46,7 @@ namespace CodeWorksWarehouse.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("ProductId,RemoveStock,Stock")] Order order)
+        public IActionResult Create([Bind("Id,ProductId,CreatedAt,ProcessedAt,RemoveStock,Stock")] Order order)
         {
             if (!ModelState.IsValid)
             {
