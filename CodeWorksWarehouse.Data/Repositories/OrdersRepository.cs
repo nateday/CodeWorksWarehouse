@@ -20,19 +20,21 @@ namespace CodeWorksWarehouse.Data.Repositories
         {
             //return _db.Query<Order>("SELECT * from orders WHERE IsProcessed = 0");
 
-            return new List<Order>() { new Order() { Id = Guid.NewGuid(), ProductId = Guid.NewGuid(), CreatedAt = DateTimeOffset.Now.AddDays(-5), ProcessedAt = DateTimeOffset.Now.AddDays(-3), RemoveStock = false, Stock = 10 } };
+            return FakeData.Orders.FindAll(o => o.ProcessedAt == null);
         }
 
         public IEnumerable<Order> GetOrdersByProductId(Guid productId)
         {
-            return _db.Query<Order>("SELECT * from orders WHERE ProductId = @ProductId", new { ProductId = productId });
+            //return _db.Query<Order>("SELECT * from orders WHERE ProductId = @ProductId", new { ProductId = productId });
+
+            return FakeData.Orders.FindAll(o => o.ProductId == productId);
         }
 
         public Order GetOrderById(Guid id)
         {
             //return _db.QueryFirstOrDefault<Order>("SELECT * from orders WHERE Id = @Id", new { Id = id });
 
-            return new Order() { Id = Guid.NewGuid(), ProductId = Guid.NewGuid(), CreatedAt = DateTimeOffset.Now.AddDays(-5), ProcessedAt = null, RemoveStock = false, Stock = 10 };
+            return FakeData.Orders.Find(b => b.Id == id);
         }
 
         public IOrder CreateOrder(Order data)
@@ -46,16 +48,18 @@ namespace CodeWorksWarehouse.Data.Repositories
                 Stock = data.Stock
             };
 
-            var successful = _db.ExecuteAsync(@"
-                INSERT INTO orders 
-                (id, productId, createdAt, removeStock, stock)
-                VALUES (@Id, @ProductId, @CreatedAt, @RemoveStock, @Stock);
-            ", newOrder);
+            FakeData.Orders.Add(newOrder);
 
-            if (successful.Result == 1)
-            {
-                return newOrder;
-            }
+            //var successful = _db.ExecuteAsync(@"
+            //    INSERT INTO orders 
+            //    (id, productId, createdAt, removeStock, stock)
+            //    VALUES (@Id, @ProductId, @CreatedAt, @RemoveStock, @Stock);
+            //", newOrder);
+
+            //if (successful.Result == 1)
+            //{
+            //    return newOrder;
+            //}
 
             return null;
         }
@@ -68,10 +72,10 @@ namespace CodeWorksWarehouse.Data.Repositories
             existingOrder.RemoveStock = o.RemoveStock;
             existingOrder.Stock = o.Stock;
 
-            _db.ExecuteAsync(@"
-                UPDATE orders SET 
-                ProductId = @ProductId, RemoveStock = @RemoveStock, Stock = @Stock 
-                WHERE Id = @Id", existingOrder);
+            //_db.ExecuteAsync(@"
+            //    UPDATE orders SET 
+            //    ProductId = @ProductId, RemoveStock = @RemoveStock, Stock = @Stock 
+            //    WHERE Id = @Id", existingOrder);
         }
     }
 }
