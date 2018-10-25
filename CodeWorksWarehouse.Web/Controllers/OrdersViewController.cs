@@ -82,7 +82,7 @@ namespace CodeWorksWarehouse.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ProcessOrder([Bind("Id,ProductId,CreatedAt,ProcessedAt,RemoveStock,Stock")] Guid id)
+        public IActionResult ProcessOrder([Bind("Id,ProductId,CreatedAt,ProcessedAt,RemoveStock,Stock")] Order order)
         {
 
             if (!ModelState.IsValid)
@@ -90,7 +90,7 @@ namespace CodeWorksWarehouse.Web.Controllers
                 throw new Exception("Invalid order.");
             }
 
-            _service.ProcessOrder(id);
+            _service.ProcessOrder(order.Id);
 
             return View("Index", _service.GetUnprocessedOrders());
         }
